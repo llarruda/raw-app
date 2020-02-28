@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('raw-app:server');
 var http = require('http');
-var browserSync = require('browser-sync')
+var browserSync = require('browser-sync');
 
 /**
  * Get port from environment and store in Express.
@@ -30,10 +30,11 @@ server.listen(port, listening);
 server.on('error', onError);
 server.on('listening', onListening);
 
+// browser-sync config
 function listening() {
   browserSync({
     proxy: 'localhost:' + port,
-    files: ['/.{js,css}', 'views/*'],
+    files: [ '/.{js,css}', 'bin/*', 'views/*'],
     open: true
   });
 }
